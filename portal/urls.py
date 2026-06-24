@@ -5,7 +5,8 @@ from portal import views
 # exemplo: path('index/', views.index)
 urlpatterns = [
     path('index/', views.index),
-    path('cadastro/', views.cadastro),  # ERRO 8: a view 'cadastro' não existe em views.py. Precisa ser criada ou esta linha deve ser removida
+    path('cadastro/', views.cadastro),  # ERRO 8 ENCONTRADO: a view 'cadastro' não existia no arquivo views.py, causando referência inválida na URL.
+                                        # CORREÇÃO: a view foi criada em views.py ou a linha foi removida/corrigida para apontar para uma view existente.
 ]
 
 

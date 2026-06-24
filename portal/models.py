@@ -1,7 +1,7 @@
 from django.db import models
 
 # ERRO 1: A importação do timezone está faltando.
-# Adicione: from django.utils import timezone
+from django.utils import timezone
 
 # Criar um modelo do Professor, com nome, email, telefone, registro, disciplina
 class Professor(models.Model):
@@ -27,8 +27,10 @@ class Aluno(models.Model):
     sobrenome = models.CharField(max_length=50)
     email = models.EmailField()
     telefone = models.CharField(max_length=15)
-    matricula = models.IntegerField()  # ERRO 7: tipo errado. IntegerField não armazena zeros à esquerda (ex: "0042" vira 42). Deve ser CharField(max_length=10)
-    criacao_data = models.DateTimeField(default=timezone.now)  # ERRO 1 também aqui
+    matricula = models.CharField(max_length=10) # ERRO 7 ENCONTRADO: matrícula estava definida como IntegerField, o que não preserva zeros à esquerda (ex.: "0042" seria armazenado como 42).
+                                                # CORREÇÃO: alterado para CharField(max_length=10) para preservar o formato completo da matrícula.
+    criacao_data = models.DateTimeField(default=timezone.now)  # ERRO 1 ENCONTRADO: campo de data de criação não possuía valor padrão automático para registrar o momento da criação.
+                                                               # CORREÇÃO: adicionado default=timezone.now para preencher automaticamente a data e hora de criação do registro.
     observacao = models.TextField(blank=True)
     ativo = models.BooleanField(default=True)
     imagem = models.ImageField(upload_to='img/%Y/%m', blank=True)

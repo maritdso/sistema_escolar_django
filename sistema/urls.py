@@ -1,9 +1,13 @@
 from django.contrib import admin
 from django.urls import path
+from portal import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('cadastro/', preciso mostrar a página cadastro.html),  # ERRO 4: sintaxe inválida. Deve ser: include('portal.urls') ou views.cadastro
+
+    # ERRO 4 ENCONTRADO: foi utilizado texto ("preciso mostrar a página cadastro.html") no lugar de uma view válida.
+    # CORREÇÃO: substituído por views.cadastro para renderizar a página cadastro.html.
+    path('cadastro/', views.cadastro, name='cadastro'),
 ]
 
 
