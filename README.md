@@ -187,3 +187,7 @@ irá funcionar corretamente, pois ela é nativa do Django e não depende desses 
 ## Conclusão
 
 Sem a criação do arquivo `cadastro.html` (ou ajuste na view para apontar para `index.html` ou `base.html`), a aplicação não conseguirá renderizar a página de cadastro e falhará ao acessá-la.
+
+
+
+###Trabalho Feito pelo Marino Teixeira Dos Santos Oliveira, O melhor aluno e Dev que você ja conheceu
